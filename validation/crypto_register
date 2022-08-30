@@ -1,0 +1,44 @@
+const Validator = require('validator');
+const isEmpty = require('is-empty');
+
+const validateRegisterInput = (data) => {
+  let errors = {};
+  data.name = !isEmpty(data.name) ? data.name : '';
+  data.app_name = !isEmpty(data.app_name) ? data.app_name : '';
+  data.email = !isEmpty(data.email) ? data.email : '';
+  data.phone = !isEmpty(data.phone) ? data.phone : '';
+  
+  if (Validator.isEmpty(data.name)) {
+    errors.name = 'Name field is required!';
+  }
+
+  if (!Validator.isLength(data.app_name, { min: 6, max: 30 })) {
+    errors.app_name = "Password must be at least 6 characters";
+  }
+
+  if (Validator.isEmpty(data.app_name)) {
+    errors.app_name = 'Name field is required!';
+  }
+
+  if (!Validator.isEmail(data.email)) {
+    errors.email = 'Email is invalid!';
+  }
+
+  if (Validator.isEmpty(data.email)) {
+    errors.email = 'Email field is required!';
+  }
+
+  if (Validator.isEmpty(data.phone)) {
+    errors.phone = 'Phone field is required!';
+  }
+
+  if (!data.checked) 
+    errors.agree = "You must check.";
+
+  return {
+    errors,
+    isValid: isEmpty(errors)
+  }
+};
+
+module.exports = validateRegisterInput;

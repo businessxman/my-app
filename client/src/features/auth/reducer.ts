@@ -5,7 +5,6 @@ import { ActionType, getType } from 'typesafe-actions';
 import { ServerResponse } from './actions';
 import * as authActions from './actions';
 import setAuthToken from '../../utils/setAuthToken';
-import { SET_CURRENT_USER, USER_LOADING } from './types';
 export type AuthAction = ActionType<typeof authActions>
 
 const isEmpty = require('is-empty');
@@ -41,7 +40,7 @@ export const axiosSetUser =async (userData: any) => {
 
 export const reducer = (state = initialState, action: AuthAction) => {
   switch (action.type) {
-    case SET_CURRENT_USER:
+    case getType(authActions.axiosGetContentAction.success):
       const token: string  = action.payload.token;
       setAuthToken(token);
       const decoded = jwt_decode(token);
@@ -51,12 +50,6 @@ export const reducer = (state = initialState, action: AuthAction) => {
         isAuthenticated: !isEmpty(decoded),
         user: decoded,
         loading: false
-      };
-    
-    case USER_LOADING:
-      return {
-        ...state,
-        loading: true
       };
 
     case getType(authActions.axiosSetContentAction.success):

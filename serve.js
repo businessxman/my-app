@@ -1,10 +1,12 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const passport = require('passport')
 require("dotenv").config({ path: './config.env' });
 const app = express();
 
 const user = require('./routes/api/user');
+const crypto = require('./routes/api/crypto');
 
 app.use(cors());
 // parse requests of content-type - application/json
@@ -14,7 +16,6 @@ app.use(bodyParser.urlencoded({ extends: true }));
 
 // mongoose
 const db = require("./models");
-console.log(db.url);
 db.mongoose
   .connect(db.url, {
     useNewUrlParser: true,
@@ -28,8 +29,15 @@ db.mongoose
     process.exit();
   });
 
+// Passport middleware
+app.use(passport.initialize());
+
+// passport config
+require('./config/passport')(passport);
+
 // router
 app.use('/api/user', user);
+app.use('/api/crypto', crypto);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 5000;

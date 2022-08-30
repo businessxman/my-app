@@ -20,6 +20,8 @@
     "jwt-decode": "^3.1.2",
     "mongoose": "^6.5.3",
     "nodemon": "^2.0.19",
+    "passport": "^0.6.0",
+    "passport-jwt": "^4.0.0",
     "validator": "^13.7.0"
   }
 }

@@ -19,7 +19,6 @@ const User = require('../../../models/user.model')(mongoose);
 // @desc Register user
 // @access Public
 router.post('/register', (req, res) =>{
-  console.log(res.data);
   const { errors, isValid } = validateRegisterInput(req.body);
 
   if (!isValid) {

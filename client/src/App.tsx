@@ -8,10 +8,10 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Register from "./pages/Register/Register";
 import SignUp from "./pages/SignUp/SignUp";
+import WalletRegister from "./pages/WalletRegister/WalletRegister";
 import setAuthToken from "./utils/setAuthToken";
-import { axiosGetContentAction, logoutUser, setCurrentUser } from "./features/auth/actions";
+import { axiosGetContentAction, logoutUser } from "./features/auth/actions";
 import "./App.scss";
-import Request from "./pages/Request/Request";
 
 if (localStorage.jwtToken) {
   const token = localStorage.jwtToken;
@@ -61,8 +61,8 @@ const App = () => {
             />
           }
         >
-          <Route index element={<Request />} />
-          <Route path='create' element={<SignUp />} />
+          <Route index element={<SignUp />} />
+          <Route path="wallet" element={<WalletRegister />} />
         </Route>
       </Routes>
     </ReduxRouter>
