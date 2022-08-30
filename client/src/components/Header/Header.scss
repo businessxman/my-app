@@ -1,0 +1,49 @@
+@import url('../../styles/_utility.scss');
+
+header {
+  .status {
+    padding: 1em;
+
+    img {
+      float: right;
+      margin-right: 1vw;
+    }  
+  }
+
+  .person_menu {
+    z-index: 105;
+    position: fixed;
+    inset: 0px auto auto 0px;
+    margin: 0;
+    transform: translate3d(calc(70.5vw), 65px, 0px);
+    background-color: gray;
+    color: white;
+    padding-top: 1em;
+
+    .menu-item {
+      text-align:"center";
+
+      .fw-bolder {
+        text-align: center;
+        font-size: medium;
+      }
+
+      a {
+        color: white;
+      }
+    }
+  }
+
+  .logo {
+    width: 40%;
+    margin-left: 30%;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+    background-color: #FFFFFF;
+
+    h2{
+      padding: 1em;
+      text-align: center;
+    }
+  }
+}

@@ -1,0 +1,22 @@
+h2{
+  padding: 1em;
+  text-align: center;
+}
+
+.context {
+  width: 60%;
+  margin-left: 20%;
+  margin-bottom: 20vh;
+  background-color: #FFFFFF;
+
+  form {
+    padding: 5%;
+    width: 50%;
+    margin-left: 25%;
+    padding-bottom: 10%;
+
+    #signup {
+      width: 100%;
+    }    
+  }
+}

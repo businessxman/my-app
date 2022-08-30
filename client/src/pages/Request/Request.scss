@@ -1,0 +1,18 @@
+.context {
+  .req_table {
+    padding: 1em;
+
+    tbody {
+      font-size: small;
+
+      .btn {
+        font-size: small;
+        padding: .2em .5em .2em .5em;
+      }
+    }
+  }
+
+  #request {
+    padding: 3em;
+  }
+}

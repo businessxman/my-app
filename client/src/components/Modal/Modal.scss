@@ -1,0 +1,19 @@
+.modal-content {
+  padding: 2em;
+  text-align: center;
+
+  .mbody {
+    text-align: left;
+  }
+
+  .mfooter {
+    width: 60%;
+    margin-left: 20%;
+    
+    button {
+      width: 25%;
+      font-size: .8em;
+      margin-left: 10%;
+    }
+  }
+}
